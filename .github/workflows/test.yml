@@ -24,10 +24,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
           python -m venv venv
           source venv/bin/activate
-          pip3 install selenium
           pip3 install webdriver-manager
           pip install -r requirements.txt
           pip install pytest-html-reporter
