@@ -26,7 +26,6 @@ jobs:
           sudo apt-get update
           python -m venv venv
           source venv/bin/activate
-          pip3 install webdriver-manager
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
