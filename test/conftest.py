@@ -13,7 +13,9 @@ def driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--remote-debugging-port=9222")
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    # service = Service(ChromeDriverManager().install())
+    # driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     #driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
