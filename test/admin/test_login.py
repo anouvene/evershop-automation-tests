@@ -18,7 +18,7 @@ class TestLogin:
         # Se connecter
         email_input.send_keys("a.nouvene@it-students.fr")
         time.sleep(1)
-        password_input.send_keys("jeTeste24$")
+        password_input.send_keys("azerty82$")
         time.sleep(1)
         login_button.click()
 
