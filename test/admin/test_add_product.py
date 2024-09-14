@@ -7,7 +7,7 @@ from test_products import TestProducts
 from selenium import webdriver
 
 class TestAddProduct(TestProducts):
-
+    # Ajouter un produit
     def test_add_new_product(self, driver):
         try :
             self.test_click_on_product(driver)
