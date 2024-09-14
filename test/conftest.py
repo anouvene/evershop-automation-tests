@@ -18,7 +18,7 @@ def driver():
     options.add_argument('--enable-cdp-events')
 
     options.binary_location = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome/"
-    executable_path = Service("/Users/anouvene/Documents/IT-AKADEMY/SELENIUM/chromedriver-mac-arm64")
+    executable_path = Service("/Users/anouvene/chromedriver-mac-arm64/chromdriver")
 
 
     # service = Service(ChromeDriverManager().install())
