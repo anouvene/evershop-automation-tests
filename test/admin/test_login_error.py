@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.mark.usefixtures("driver")
 class TestLoginError:
-    def test_error_login(self):
+    def test_error_login(self, driver):
         self.driver.get("http://localhost:3000/admin")
         
         email_input = self.driver.find_element(By.NAME, "email")

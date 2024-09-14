@@ -10,7 +10,7 @@ from selenium import webdriver
 @pytest.mark.usefixtures("driver")
 class TestAddProduct(TestProducts):
     # Ajouter un produit
-    def test_add_new_product(self):
+    def test_add_new_product(self, driver):
         try :
             self.test_click_on_product(self.driver)
             new_product_button = WebDriverWait(self.driver, 10).until(

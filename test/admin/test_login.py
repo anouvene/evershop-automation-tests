@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.mark.usefixtures("driver")
 class TestLogin:
-    def test_successful_login(self):
+    def test_successful_login(self, driver):
         # Accéder à la page d'administration du site
         self.driver.get("http://localhost:3000/admin")
 

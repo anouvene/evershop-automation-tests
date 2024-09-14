@@ -8,7 +8,7 @@ from test_login import TestLogin
 
 @pytest.mark.usefixtures("driver")
 class TestProducts(TestLogin):
-    def test_click_on_product(self):
+    def test_click_on_product(self, driver):
         try:
             # Wait for and click on the Catalog menu item
             catalog_menu = WebDriverWait(self.driver, 10).until(
