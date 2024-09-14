@@ -21,9 +21,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Install Pytest reporter
         run: |
-          pip install -r requirements.txt
           pip install pytest-html-reporter
 
       - name: Install GPG Key
