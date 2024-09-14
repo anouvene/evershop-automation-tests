@@ -23,8 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m venv venv
-          source venv/bin/activate
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
@@ -45,4 +43,3 @@ jobs:
         with:
           name: test-report
           path: pytest_html_report.html
-
