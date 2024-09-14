@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service as ChromeService, Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -17,10 +17,16 @@ def driver():
     options.add_argument('--disable-gpu')
     options.add_argument('--enable-cdp-events')
 
+    options.binary_location = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome/"
+    executable_path = Service("/Users/anouvene/Documents/IT-AKADEMY/SELENIUM/chromedriver-mac-arm64")
+
+
     # service = Service(ChromeDriverManager().install())
     # driver = webdriver.Chrome(service=service, options=options)
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     #driver = webdriver.Chrome(options=options)
+
+    driver = webdriver.Chrome(service=executable_path, options=options)
 
     driver.implicitly_wait(10)
     yield driver
