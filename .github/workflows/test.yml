@@ -33,6 +33,8 @@ jobs:
       - name: Install Google Chrome Stable
         run: sudo apt-get -y update; sudo apt-get -y install google-chrome-stable
 
+      - name: Install the necessary packages
+        run: pip install requests webdriver-manager selenium pytest
       - name: Run tests and generate HTML report
         run: |
           pytest -rA

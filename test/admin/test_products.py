@@ -1,5 +1,4 @@
 import pytest
-import selenium
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,7 +7,6 @@ from test_login import TestLogin
 
 @pytest.mark.usefixtures("driver")
 class TestProducts(TestLogin):
-    @pytest.fixture(scope="class", autouse=True)
     def test_click_on_product(self, driver):
         try:
             # Wait for and click on the Catalog menu item

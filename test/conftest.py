@@ -30,5 +30,3 @@ def driver(request):
 
     yield request.cls.driver
     request.cls.driver.close()
-
-

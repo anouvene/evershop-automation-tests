@@ -4,13 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from test_products import TestProducts
-from selenium import webdriver
 
 # Penser à supprimer Test Product avant de tester
 @pytest.mark.usefixtures("driver")
 class TestAddProduct(TestProducts):
     # Ajouter un produit
-    @pytest.fixture(scope="class", autouse=True)
     def test_add_new_product(self, driver):
         try :
             self.test_click_on_product(driver)
