@@ -5,30 +5,30 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture(scope="class")
-def driver():
-    options = webdriver.ChromeOptions()
-    options.add_argument("--disable-search-engine-choice-screen")
-    options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--remote-debugging-port=9222")
+def driver(request):
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--disable-search-engine-choice-screen")
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--remote-debugging-port=9222")
 
-    # options.add_argument('--dns-prefetch-disable')
-    # options.add_argument('--disable-gpu')
-    # options.add_argument('--enable-cdp-events')
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1200")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--ignore-certificate-errors")
 
-
-
-
-    # service = Service(ChromeDriverManager().install())
-    # driver = webdriver.Chrome(service=service, options=options)
-    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-    driver = webdriver.Chrome(options=options)
+    # chrome_options.add_argument('--dns-prefetch-disable')
+    # chrome_options.add_argument('--enable-cdp-events')
 
     # driver_path = ChromeService(executable_path='/usr/local/bin/chromedriver-mac-arm64/chromedriver')
-    # driver = webdriver.Chrome(service=driver_path, options=options)
+    # driver = webdriver.Chrome(service=driver_path, options=chrome_options)
+    # driver = webdriver.Chrome(options=chrome_options)
 
-    driver.implicitly_wait(10)
-    yield driver
-    driver.quit()
+    chrome_service = ChromeService(ChromeDriverManager().install())
+    request.cls.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+
+    yield request.cls.driver
+    request.cls.driver.close()
+
 

@@ -23,17 +23,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
+      - name: Install GPG Key
+        run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      - name: Add source.list
+        run: echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+      - name: Install Google Chrome Stable
+        run: sudo apt-get -y update; sudo apt-get -y install google-chrome-stable
+
       - name: Run tests and generate HTML report
         run: |
           source venv/bin/activate
-          pytest
+          pytest -rA
 
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
