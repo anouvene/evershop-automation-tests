@@ -1,4 +1,5 @@
 import pytest
+import time
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,15 +13,14 @@ class TestAddProduct(TestProducts):
     def test_add_new_product(self, driver):
         try :
             self.test_click_on_product(driver)
-            new_product_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[@href='/admin/products/new' and contains(@class, 'button primary')]"))
-            )
+            time.sleep(10)
+            new_product_button = driver.find_element(By.XPATH, "//a[@href='/admin/products/new' and contains(@class, 'button primary')]")
             new_product_button.click()
 
             # Vérifier que la page de création de produit est bien chargée
-            create_product_heading = WebDriverWait(driver, 15).until(
-                EC.visibility_of_element_located((By.XPATH, "//h1[text()='Create A New Product']"))
-            )
+            time.sleep(10)
+            create_product_heading = driver.find_element(By.XPATH, "//h1[text()='Create A New Product']")
+
             assert create_product_heading.is_displayed(), "Create New Product page did not load correctly"
 
         except TimeoutException as e:
@@ -72,9 +72,8 @@ class TestAddProduct(TestProducts):
             save_button.click()
 
             # Vérifier que le produit a été créé avec succès (Cela dépend de la façon dont la page se comporte après la soumission)
-            success_message = WebDriverWait(driver, 15).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, ".Toastify__toast-body"))
-            )
+            time.sleep(15)
+            success_message = driver.find_element(By.CSS_SELECTOR, ".Toastify__toast-body")
             assert success_message.text == "Product saved successfully!", "Product was not created successfully"
 
         except TimeoutException as e:

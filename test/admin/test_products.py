@@ -1,4 +1,5 @@
 import pytest
+import time
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,22 +11,18 @@ class TestProducts(TestLogin):
     def test_click_on_product(self, driver):
         try:
             # Wait for and click on the Catalog menu item
-            catalog_menu = WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.XPATH, "//span[text()='Catalog']"))
-            )
+            time.sleep(10)
+            catalog_menu = driver.find_element((By.XPATH, "//span[text()='Catalog']"))
             catalog_menu.click()
 
             # Wait for and click on the Products menu item
-            products_menu = WebDriverWait(driver, 15).until(
-                EC.visibility_of_element_located(
-                    (By.XPATH, "//a[contains(@href, '/admin/products') and contains(., 'Products')]"))
-            )
+            time.sleep(15)
+            products_menu = driver.find_element(By.XPATH, "//a[contains(@href, '/admin/products') and contains(., 'Products')]")
             products_menu.click()
 
             # Wait for the Products page heading to appear and verify its visibility
-            page_heading = WebDriverWait(driver, 15).until(
-                EC.visibility_of_element_located((By.XPATH, "//h1[text()='Products']"))
-            )
+            time.sleep(15)
+            page_heading = driver.find_element(By.XPATH, "//h1[text()='Products']")
             assert page_heading.is_displayed(), "Products page did not load correctly"
 
         except TimeoutException as e:
