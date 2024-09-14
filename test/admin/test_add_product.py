@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from test_products import TestProducts
 from selenium import webdriver
 
+# Penser à supprimer Test Product avant de tester
 class TestAddProduct(TestProducts):
     # Ajouter un produit
     def test_add_new_product(self, driver):
