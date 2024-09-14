@@ -35,7 +35,6 @@ jobs:
 
       - name: Run tests and generate HTML report
         run: |
-          source venv/bin/activate
           pytest -rA
 
       - name: Upload HTML report
