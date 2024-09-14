@@ -36,6 +36,7 @@ jobs:
 
       - name: Run tests and generate HTML report
         run: |
+          python -m pytest
           pytest -rA
 
       - name: Upload HTML report
