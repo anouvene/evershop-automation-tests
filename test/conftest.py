@@ -17,8 +17,8 @@ def driver():
     options.add_argument('--disable-gpu')
     options.add_argument('--enable-cdp-events')
 
-    options.binary_location = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome/"
-    executable_path = Service("/Users/anouvene/chromedriver-mac-arm64/chromdriver")
+    #options.binary_location = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome/"
+    executable_path = Service("/usr/local/bin/chromedriver-mac-arm64")
 
 
     # service = Service(ChromeDriverManager().install())
