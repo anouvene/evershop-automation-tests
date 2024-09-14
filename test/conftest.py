@@ -17,18 +17,18 @@ def driver():
     # options.add_argument('--disable-gpu')
     # options.add_argument('--enable-cdp-events')
 
-    #options.binary_location = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome/"
-    driver_path = ChromeService(executable_path='/usr/local/bin/chromedriver-mac-arm64/chromedriver')
+
 
 
     # service = Service(ChromeDriverManager().install())
     # driver = webdriver.Chrome(service=service, options=options)
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-    #driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=options)
 
-    driver = webdriver.Chrome(service=driver_path, options=options)
+    # driver_path = ChromeService(executable_path='/usr/local/bin/chromedriver-mac-arm64/chromedriver')
+    # driver = webdriver.Chrome(service=driver_path, options=options)
 
-    # driver.implicitly_wait(10)
+    driver.implicitly_wait(10)
     yield driver
     driver.quit()
 
