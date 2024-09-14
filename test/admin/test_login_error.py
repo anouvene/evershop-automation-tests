@@ -1,9 +1,8 @@
-import pytest
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
-@pytest.mark.usefixtures("driver")
+
 class TestLoginError:
     def test_error_login(self, driver):
         self.driver.get("http://localhost:3000/admin/login")
