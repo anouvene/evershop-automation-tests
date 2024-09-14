@@ -8,6 +8,7 @@ from test_login import TestLogin
 
 @pytest.mark.usefixtures("driver")
 class TestProducts(TestLogin):
+    @pytest.fixture(scope="class", autouse=True)
     def test_click_on_product(self, driver):
         try:
             # Wait for and click on the Catalog menu item

@@ -10,6 +10,7 @@ from selenium import webdriver
 @pytest.mark.usefixtures("driver")
 class TestAddProduct(TestProducts):
     # Ajouter un produit
+    @pytest.fixture(scope="class", autouse=True)
     def test_add_new_product(self, driver):
         try :
             self.test_click_on_product(driver)
