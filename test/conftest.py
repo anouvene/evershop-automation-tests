@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture()
-def driver(request):
+def driver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--disable-search-engine-choice-screen")
     chrome_options.add_argument("--headless=new")
@@ -13,10 +13,10 @@ def driver(request):
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--remote-debugging-port=9222")
 
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920,1200")
-    chrome_options.add_argument("--disable-extensions")
-    chrome_options.add_argument("--ignore-certificate-errors")
+    # chrome_options.add_argument("--disable-gpu")
+    # chrome_options.add_argument("--window-size=1920,1200")
+    # chrome_options.add_argument("--disable-extensions")
+    # chrome_options.add_argument("--ignore-certificate-errors")
 
     # chrome_options.add_argument('--dns-prefetch-disable')
     # chrome_options.add_argument('--enable-cdp-events')
@@ -26,8 +26,8 @@ def driver(request):
     # driver = webdriver.Chrome(options=chrome_options)
 
     chrome_service = ChromeService(ChromeDriverManager().install())
-    request.cls.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-    request.cls.driver.implicitly_wait(10)
-    yield request.cls.driver
-    request.cls.driver.close()
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()

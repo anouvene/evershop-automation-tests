@@ -21,9 +21,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Pytest reporter
+      - name: Install Dependencies
         run: |
-          pip install pytest-html-reporter
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
 
       - name: Install GPG Key
         run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -32,8 +34,6 @@ jobs:
       - name: Install Google Chrome Stable
         run: sudo apt-get -y update; sudo apt-get -y install google-chrome-stable
 
-      - name: Install the necessary packages
-        run: pip install requests webdriver-manager selenium pytest
       - name: Run tests and generate HTML report
         run: |
           pytest -rA
