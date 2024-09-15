@@ -38,7 +38,6 @@ jobs:
       - name: Run tests and generate HTML report
         run: |
           pip install pytest
-          python -m pytest
           pytest -rA
 
       - name: Upload HTML report
