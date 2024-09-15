@@ -1,9 +1,11 @@
 import time
+
+import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-
+@pytest.mark.usefixtures('driver')
 class TestLogin:
     def test_successful_login(self, driver):
         # Accéder à la page d'administration du site

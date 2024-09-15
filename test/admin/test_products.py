@@ -1,9 +1,11 @@
 import time
+
+import pytest
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from test_login import TestLogin
 
-
+@pytest.mark.usefixtures('driver')
 class TestProducts(TestLogin):
     def test_click_on_product(self, driver):
         try:

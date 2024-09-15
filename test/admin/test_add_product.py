@@ -1,4 +1,6 @@
 import time
+
+import pytest
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from test_products import TestProducts
 
 # Penser à supprimer Test Product avant de tester
+@pytest.mark.usefixtures('driver')
 class TestAddProduct(TestProducts):
     # Ajouter un produit
     def test_add_new_product(self, driver):
