@@ -61,6 +61,7 @@ class TestAddProduct(TestProducts):
             description_input = driver.find_element(By.CSS_SELECTOR, "div.ck-content")
             driver.execute_script("arguments[0].innerHTML = '<p>This is a test product description.</p>'", description_input)
 
+            # Quantité
             qty.send_keys("5")
             urlKey.send_keys("produitTest")
 
