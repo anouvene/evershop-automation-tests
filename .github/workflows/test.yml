@@ -23,11 +23,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get install --reinstall python3-pkg-resources python3-setuptools
-          python -m venv venv
           sudo apt-get update
           python -m venv venv
-          source venv/bin/activate        
+          source venv/bin/activate    
+          pip3 install --upgrade setuptools pip
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
