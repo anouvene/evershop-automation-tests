@@ -36,7 +36,6 @@ jobs:
       - name: Install Google Chrome Stable
         run: |
           sudo apt-get -y install google-chrome-stable
-          sudo apt-get install --reinstall python-pkg-resources
 
       - name: Run tests and generate HTML report
         run: |
