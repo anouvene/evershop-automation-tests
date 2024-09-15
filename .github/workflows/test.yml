@@ -28,15 +28,13 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
           pip install pytest-html-reporter
-          pip install --upgrade setuptools
-          pip install --upgrade distribute
 
       - name: Install GPG Key
         run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
       - name: Add source.list
         run: echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
       - name: Install Google Chrome Stable
-        run: sudo apt-get -y install google-chrome-stable
+        run: sudo apt-get -y install google-chrome-stable; sudo apt-get install --reinstall python-pkg-resources
 
       - name: Run tests and generate HTML report
         run: |
