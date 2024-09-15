@@ -28,6 +28,8 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
           pip install pytest-html-reporter
+          pip install --upgrade setuptools
+          pip install --upgrade distribute
 
       - name: Install GPG Key
         run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
