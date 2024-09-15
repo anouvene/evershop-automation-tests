@@ -23,11 +23,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get -y update
+          sudo apt-get update
           python -m venv venv
           source venv/bin/activate
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install pytest-html-reporter
 
       - name: Install GPG Key
         run: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -38,7 +38,6 @@ jobs:
 
       - name: Run tests and generate HTML report
         run: |
-          pip install pytest selenium
           pytest -rA
 
       - name: Upload HTML report
