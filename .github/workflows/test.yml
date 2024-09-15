@@ -34,7 +34,9 @@ jobs:
       - name: Add source.list
         run: echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
       - name: Install Google Chrome Stable
-        run: sudo apt-get -y install google-chrome-stable; sudo apt-get install --reinstall python-pkg-resources
+        run: |
+          sudo apt-get -y install google-chrome-stable
+          sudo apt-get install --reinstall python-pkg-resources
 
       - name: Run tests and generate HTML report
         run: |
