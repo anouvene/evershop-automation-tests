@@ -26,6 +26,7 @@ jobs:
           sudo apt-get update
           python -m venv venv
           source venv/bin/activate
+          sudo apt install --reinstall python3-pkg-resources python3-setuptools
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
@@ -36,7 +37,7 @@ jobs:
       - name: Install Google Chrome Stable
         run: |
           sudo apt-get -y install google-chrome-stable
-          sudo apt install --reinstall python3-pkg-resources python3-setuptools
+          
 
       - name: Run tests and generate HTML report
         run: |
