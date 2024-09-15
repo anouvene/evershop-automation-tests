@@ -26,7 +26,7 @@ jobs:
           sudo apt-get update
           python -m venv venv
           source venv/bin/activate
-          sudo apt install --reinstall python3-pkg-resources python3-setuptools
+          sudo pt-get install --reinstall python3-pkg-resources python3-setuptools
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
