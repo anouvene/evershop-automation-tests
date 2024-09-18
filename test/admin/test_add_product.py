@@ -64,7 +64,7 @@ class TestAddProduct(TestProducts):
         save_button.click()
 
         # Vérifier que le produit a été créé avec succès (Cela dépend de la façon dont la page se comporte après la soumission)
-        time.sleep(1)
+        time.sleep(5)
         success_message = driver.find_element(By.CSS_SELECTOR, ".Toastify__toast-body")
         assert success_message.text == "Product saved successfully!", "Product was not created successfully"
 
