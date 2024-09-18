@@ -6,17 +6,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 @pytest.mark.usefixtures('driver')
 class TestLoginError:
     def test_error_login(self, driver):
-        self.driver.get("http://localhost:3000/admin/login")
+        driver.get("http://localhost:3000/admin/login")
         
-        email_input = self.driver.find_element(By.NAME, "email")
-        password_input = self.driver.find_element(By.NAME, "password")
-        login_button = self.driver.find_element(By.XPATH, "//button[@type='submit']")
+        email_input = driver.find_element(By.NAME, "email")
+        password_input = driver.find_element(By.NAME, "password")
+        login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
     
         email_input.send_keys("test@test.fr")
         password_input.send_keys("zdadzadf")
         login_button.click()
 
-        message = WebDriverWait(self.driver, 10).until(
+        message = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, ".text-critical"))
         )
         

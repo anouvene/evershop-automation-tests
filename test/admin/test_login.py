@@ -17,9 +17,9 @@ class TestLogin:
         login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 
         # Se connecter
-        email_input.send_keys("a.nouvene@it-students.fr")
+        email_input.send_keys("test@test.fr")
         time.sleep(1)
-        password_input.send_keys("azerty82$")
+        password_input.send_keys("123456test123")
         time.sleep(1)
         login_button.click()
 
