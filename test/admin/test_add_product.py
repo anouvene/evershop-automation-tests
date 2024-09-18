@@ -52,12 +52,8 @@ class TestAddProduct(TestProducts):
         tax_class_option.click()
 
         # Ajouter une description
-        description = driver.find_element(By.CSS_SELECTOR, "div.row-templates.flex.justify-center.gap-7.border.border-divider.px-3")
-        description_template = description.find_element(By.CSS_SELECTOR, ":first-child")
-        description_template.click()
-        time.sleep(2)
-        div_text = driver.find_element(By.CSS_SELECTOR, "div.ce-paragraph.cdx-block")
-        driver.execute_script("arguments[0].innerHTML = 'This is a test product description.'", div_text)
+        description_input = driver.find_element(By.CSS_SELECTOR, "div.ck-content")
+        driver.execute_script("arguments[0].innerHTML = '<p>This is a test product description.</p>'", description_input)
 
         # Quantité
         qty.send_keys("5")
