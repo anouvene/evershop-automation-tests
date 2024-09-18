@@ -73,11 +73,6 @@ jobs:
           source venv/bin/activate
           pytest -rA
 
-      - name: Run tests and generate HTML report
-        run: |
-          source venv/bin/activate
-          pytest
-
       - name: Upload HTML report
         uses: actions/upload-artifact@v3
         with:
