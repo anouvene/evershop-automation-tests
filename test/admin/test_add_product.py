@@ -39,7 +39,7 @@ class TestAddProduct(TestProducts):
         select_category = driver.find_element(By.XPATH, "//a[text()='Select category']")
         select_category.click()
         time.sleep(2)
-        select_category = driver.find_element(By.CSS_SELECTOR, ".flex.justify-start.gap-4.items-center")
+        select_category = driver.find_element(By.CSS_SELECTOR, ".flex.justify-start.gap-1.items-center")
 
         select_category = select_category.find_elements(By.TAG_NAME, "a")[1]
         select_category.click()
