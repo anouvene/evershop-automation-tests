@@ -13,11 +13,6 @@ def driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--remote-debugging-port=9222")
 
-    # chrome_options.add_argument("--disable-gpu")
-    # chrome_options.add_argument("--window-size=1920,1200")
-    # chrome_options.add_argument("--disable-extensions")
-    # chrome_options.add_argument("--ignore-certificate-errors")
-
     # chrome_options.add_argument('--dns-prefetch-disable')
     # chrome_options.add_argument('--enable-cdp-events')
 
