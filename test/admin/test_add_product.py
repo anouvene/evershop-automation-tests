@@ -31,7 +31,7 @@ class TestAddProduct(TestProducts):
         urlKey = driver.find_element(By.ID, "urlKey")
 
         name_input.send_keys("Test Product")
-        sku_input.send_keys("TP-12345")
+        sku_input.send_keys("TP-9999")
         price_input.send_keys("99.99")
         weight_input.send_keys("1.5")
 
