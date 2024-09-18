@@ -57,7 +57,7 @@ jobs:
         run: |
           npx create-evershop-app myapp
           cd myapp
-          npm install
+          npm install @evershop/evershop@latest
 
       - name: Start Docker Compose and wait
         run: |
