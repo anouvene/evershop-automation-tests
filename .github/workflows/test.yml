@@ -54,7 +54,7 @@ jobs:
             matrix:
               version: [ 10, 12, 14, 18, 19, 20 ]
           steps:
-            - uses: actions/setup-node@v4
+              uses: actions/setup-node@v4
               with:
               node-version: ${{ matrix.version }}
 
